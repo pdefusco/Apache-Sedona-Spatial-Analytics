@@ -43,3 +43,13 @@ df = spark.read.option("delimiter", "|").csv("county_small.tsv", header=False)
 using `df.show()`, the data appears as follows:
 
 ![data](images/original_data_frame.png)
+
+Lastly, we will create a temporary table to perform Spark SQL commands against the table:
+```
+df.createOrReplaceTempView("geo_table")
+```
+
+###Preparing the data for geospatial analysis
+running `df.printSchema()` we will notice that column c0 is of type 'String'. We will need to convert this column to a Sedona geometric data type before performing any analysis.
+
+![data](images/original_data_frame_schema.png)

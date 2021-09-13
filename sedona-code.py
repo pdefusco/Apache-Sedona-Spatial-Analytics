@@ -21,6 +21,8 @@ df.show(5)
 #Create a temporary table to use with Spark SQL
 df.createOrReplaceTempView("geo_table")
 
+df.printSchema()
+
 #Convert c0 to Geometric type
 geo_query = spark.sql('''SELECT ST_GeomFromWKT(_c0) AS shape
                          FROM geo_table''')
@@ -29,4 +31,4 @@ geo_query = spark.sql('''SELECT ST_GeomFromWKT(_c0) AS shape
 geo_query.printSchema()
 
 #View the data
-geo_query.show()
+geo_query.show(5)
