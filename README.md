@@ -41,4 +41,5 @@ df = spark.read.option("delimiter", "|").csv("county_small.tsv", header=False)
 ```
 
 using `df.show()`, the data appears as follows:
+
 ![data](images/original_data_frame.png)
