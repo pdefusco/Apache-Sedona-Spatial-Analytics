@@ -1,1 +1,2 @@
 # Apache-Sedona-Spatial-Analytics
+The following instructions will help you get up and running with Apache Sedona, a distributed computing framework for geospatial analytics. To learn more about Sedona, check out the **[documentation](https://docs.cloudera.com/machine-learning/cloud/index.html)**

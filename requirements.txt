@@ -1,0 +1,4 @@
+apache-sedona==1.0.1
+py4j==0.10.9
+shapely==1.7.1
+attrs==21.2.0
