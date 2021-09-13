@@ -11,3 +11,33 @@ You may notice that Sedona has a dependency on PySpark, which can cause confusio
 ```
 pip install -r requirements.txt --no-deps
 ```
+
+### Configuring the Spark Session
+Before running any geospatial analytics, you will need to configure your Spark Session with the following 3 steps:
+1. Imports: You will need to import SparkSession and SedonaRegistrator.
+```
+from pyspark.sql import SparkSession
+from sedona.register import SedonaRegistrator
+```
+2. SparkSession: Be sure to include the **[Maven coordinates](https://sedona.apache.org/download/maven-coordinates/)** for the sedona-python-adapter. Make sure to note the version of Spark that you are using.
+```
+spark = SparkSession\
+    .builder\
+    .appName("Python")\
+    .master("local[*]")\
+    .config('spark.jars.packages',
+           'org.apache.sedona:sedona-python-adapter-2.4_2.11:1.0.1-incubating') \
+    .getOrCreate()
+```
+3. SedonaRegistrator: This will make all SedonaSQL functions available in your SparkSession
+```
+SedonaRegistrator.registerAll(spark)
+```
+
+### Reading the data into spark
+We will use the following code to read the data into Spark as a DataFrame
+```
+df = spark.read.option("delimiter", "|").csv("county_small.tsv", header=False)
+```
+
+using `df.show()`, the data appears as follows:
