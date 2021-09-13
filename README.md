@@ -49,7 +49,18 @@ Lastly, we will create a temporary table to perform Spark SQL commands against t
 df.createOrReplaceTempView("geo_table")
 ```
 
-###Preparing the data for geospatial analysis
-running `df.printSchema()` we will notice that column c0 is of type 'String'. We will need to convert this column to a Sedona geometric data type before performing any analysis.
+### Preparing the data for geospatial analysis
+running `df.printSchema()` we will notice that column c0 is of type 'String'
 
 ![data](images/original_data_frame_schema.png)
+
+We will need to convert this column to a Sedona geometric data type before performing any analysis. This can be accomplished using the ST_GeomFromWKT() function in Spark SQL:
+
+![data](images/spark_sql_geo_convert.png)
+
+To verify this change, we can run `geo_query.printSchema()`
+
+![data](images/geo_data_schema.png)
+
+### Conclusion
+With these steps completed, you should be good to get up and running with Sedona! For more in-depth examples, check out this **[example](https://sedona.apache.org/tutorial/sql-python/)**
