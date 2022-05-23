@@ -11,15 +11,10 @@ Version: 2021.12
 Enable Spark: Spark 2.4.7 - CDP 7.2.11 - CDE 1.13 - HOTFIX
 ```
 
-### Sedona Setup
-To use Sedona with PySpark, you will need to download the package from PyPI. This can be done with a pip install:
+### Project Setup
+Open a CML Session and run the following command to install Sedona without PySpark:
 ```
-pip install apache-sedona
-``` 
-
-You may notice that Sedona has a dependency on PySpark, which can cause confusion, especially when running Spark in a containerized environment. You can run the attached requirements file to install Sedona without PySpark:
-```
-pip install -r requirements.txt --no-deps
+!pip3 install -r requirements.txt --no-deps
 ```
 
 ### Configuring the Spark Session
