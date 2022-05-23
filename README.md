@@ -1,6 +1,16 @@
 # Apache-Sedona-Spatial-Analytics
 The following instructions will help you get up and running with Apache Sedona, a distributed computing framework for geospatial analytics. To learn more about Sedona, check out the **[documentation](https://docs.cloudera.com/machine-learning/cloud/index.html)**.
 
+### CML Requirements
+To run this demo you will need to launch a CML Session with the following settings. Please ensure you have the runtime shown below or it will likely not work.
+```
+Editor: Workbench
+Kernel: Python 3.7 or above
+Edition: Standard
+Version: 2021.12
+Enable Spark: Spark 2.4.7 - CDP 7.2.11 - CDE 1.13 - HOTFIX
+```
+
 ### Sedona Setup
 To use Sedona with PySpark, you will need to download the package from PyPI. This can be done with a pip install:
 ```
